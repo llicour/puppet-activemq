@@ -48,7 +48,7 @@ class activemq($mqbrokerip01 = '192.168.0.16', $mqbrokerip02 = '192.168.0.21') {
                       File['/etc/activemq/activemq.xml' ], ],
     }
 
-    include firewall
+    include myfirewall
 
     firewall { '100 Stomp' :
           chain  => 'INPUT',
