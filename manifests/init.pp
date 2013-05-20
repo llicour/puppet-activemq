@@ -3,6 +3,7 @@
 
 class activemq($mqbrokerip01 = '192.168.0.16', $mqbrokerip02 = '192.168.0.21') {
     include java
+    include yum::kermit
 
     realize Package[ 'java-1.6.0-openjdk' ]
 
