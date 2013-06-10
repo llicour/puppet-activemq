@@ -3,7 +3,7 @@
 
 class activemq($mqbrokerip01 = '192.168.0.16', $mqbrokerip02 = '192.168.0.21') {
     include java
-    include yum::kermit
+    include kermit::yum
 
     package { 'tanukiwrapper' :
         ensure  => installed,
@@ -38,6 +38,7 @@ class activemq($mqbrokerip01 = '192.168.0.16', $mqbrokerip02 = '192.168.0.21') {
         owner   => 'root',
         group   => 'root',
         require => Package['activemq'],
+        notify  => Service[ 'httpd' ],
     }
 
     service { 'activemq' :
